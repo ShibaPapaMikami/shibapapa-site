@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#c8763a"/>
+  <!-- 柴犬シルエット（簡易） -->
+  <path d="M18 20 L26 30 L18 34 Z" fill="#fdfbf9"/>
+  <path d="M46 20 L38 30 L46 34 Z" fill="#fdfbf9"/>
+  <path d="M32 24c8 0 13 6 13 13 0 7-6 12-13 12s-13-5-13-12c0-7 5-13 13-13z" fill="#fdfbf9"/>
+  <circle cx="26" cy="36" r="2.4" fill="#23201d"/>
+  <circle cx="38" cy="36" r="2.4" fill="#23201d"/>
+  <path d="M32 42c-2.2 0-4 1.4-4 3.2 0 1.6 1.8 2.8 4 2.8s4-1.2 4-2.8c0-1.8-1.8-3.2-4-3.2z" fill="#23201d"/>
+</svg>
