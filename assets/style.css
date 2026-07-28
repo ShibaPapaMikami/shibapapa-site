@@ -66,14 +66,24 @@ h1, h2, h3 { line-height: 1.35; letter-spacing: .01em; }
   margin-inline: auto;
 }
 
+/* 画面外に飛ばすと横スクロールが出るので clip-path で隠す */
 .skip-link {
   position: absolute;
-  left: -9999px;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .skip-link:focus {
+  position: fixed;
   left: 1rem; top: 1rem;
+  width: auto; height: auto;
+  margin: 0;
+  clip-path: none;
   z-index: 100;
   background: var(--surface);
+  color: var(--text);
   padding: .6rem 1rem;
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -126,6 +136,16 @@ h1, h2, h3 { line-height: 1.35; letter-spacing: .01em; }
   padding-block: .3rem;
 }
 .nav a:hover { color: var(--accent); }
+
+/* 狭い画面ではロゴとナビが競合するので詰める */
+@media (max-width: 560px) {
+  .brand { font-size: .95rem; }
+  .brand-mark { font-size: 1.1rem; }
+  .nav { gap: 1rem; font-size: .85rem; }
+}
+@media (max-width: 360px) {
+  .brand-text { display: none; }
+}
 
 /* ---------- hero ---------- */
 
