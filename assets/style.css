@@ -157,6 +157,18 @@ ul, ol { margin: 0; padding: 0; }
   white-space: nowrap;
 }
 .nav a:hover { color: var(--water); }
+.nav a[aria-current="page"] {
+  color: var(--water-dark);
+  position: relative;
+}
+.nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--water);
+}
 
 /* 言語切替（現在の言語ではなく「切り替え先」を表示する） */
 .lang-toggle {
@@ -327,6 +339,111 @@ ul, ol { margin: 0; padding: 0; }
   text-transform: uppercase;
 }
 @media (max-width: 620px) { .scroll-hint { display: none; } }
+
+/* ---------------- page hero（下層ページの見出し） ---------------- */
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.2rem, 8vw, 5.5rem) clamp(2.2rem, 5vw, 3.4rem);
+  background:
+    radial-gradient(80% 80% at 10% -20%, var(--water-soft), transparent 70%),
+    radial-gradient(60% 70% at 95% 0%, var(--cyan-soft), transparent 72%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner { position: relative; max-width: 44rem; }
+
+.page-title {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.015em;
+  margin-bottom: 1rem;
+}
+.page-lead {
+  color: var(--text-muted);
+  font-size: clamp(.98rem, 2vw, 1.06rem);
+  max-width: 36rem;
+}
+
+/* ---------------- home: 作品ティザー ---------------- */
+
+.teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin-top: 2.5rem;
+}
+@media (max-width: 900px) {
+  .teaser { grid-template-columns: 1fr; }
+}
+
+/* ---------------- home: 各ページへの導線カード ---------------- */
+
+.nav-cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.nav-card a {
+  display: block;
+  height: 100%;
+  padding: 1.7rem 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.nav-card a:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 111, 209, .45);
+  box-shadow: 0 18px 40px -26px rgba(11, 82, 153, .4);
+}
+.nav-card-label {
+  display: block;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--cyan-text);
+  margin-bottom: .6rem;
+}
+.nav-card-title {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+}
+.nav-card-text {
+  font-size: .9rem;
+  color: var(--text-muted);
+  margin-bottom: .9rem;
+}
+.nav-card-more {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--water);
+}
+
+/* ---------------- ページ下部の次への導線 ---------------- */
+
+.page-next {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+.page-next-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.page-next-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
 
 /* ---------------- sections ---------------- */
 

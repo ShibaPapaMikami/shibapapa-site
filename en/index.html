@@ -7,20 +7,17 @@
 <meta name="description" content="Shibapapa (Masafumi Mikami) is a creator making XR content with AI. Working across AI, 3D, WebXR, AR and MR to prototype new experiences of characters and space.">
 <link rel="canonical" href="https://shibapapa.com/en/">
 <meta name="color-scheme" content="light">
-
 <link rel="alternate" hreflang="ja" href="https://shibapapa.com/">
 <link rel="alternate" hreflang="en" href="https://shibapapa.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://shibapapa.com/">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shibapapa.com/en/">
 <meta property="og:title" content="Shibapapa | Making XR that meets reality, with AI.">
-<meta property="og:description" content="Working across AI, 3D, WebXR, AR and MR to prototype new experiences of characters and space.">
+<meta property="og:description" content="Working across AI, 3D, WebXR and AR/MR to prototype new experiences of characters and space.">
 <meta property="og:site_name" content="SHIBAPAPA">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
@@ -30,30 +27,25 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="SHIBAPAPA home">
+    <a class="brand" href="/en/" aria-label="SHIBAPAPA home">
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-text">SHIBAPAPA</span>
     </a>
-
     <div class="header-tools">
       <nav class="nav" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#lab">Lab</a>
-        <a href="#contact">Contact</a>
+        <a href="/en/work/">Work</a>
+        <a href="/en/about/">About</a>
+        <a href="/en/lab/">Lab</a>
+        <a href="/en/contact/">Contact</a>
       </nav>
-      <a class="lang-toggle" href="/" lang="ja" hreflang="ja"
-         aria-label="日本語に切り替える">日本語</a>
+      <a class="lang-toggle" href="/" lang="ja" hreflang="ja" aria-label="日本語に切り替える">日本語</a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ============================================================
-       1. Hero
-       ============================================================ -->
-  <section class="hero" id="top">
+  <section class="hero">
     <div class="hero-water" aria-hidden="true">
       <span class="ripple ripple-1"></span>
       <span class="ripple ripple-2"></span>
@@ -67,38 +59,29 @@
         Working across AI, 3D, WebXR and AR/MR, I prototype new experiences
         where characters and space come together.
       </p>
-
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#work">
+        <a class="btn btn-primary" href="/en/work/">
           Try the work
           <span class="btn-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="/en/contact/">Get in touch</a>
       </div>
-
       <p class="hero-role">A creator making XR content with AI</p>
     </div>
 
-    <a class="scroll-hint" href="#work" aria-label="Scroll to featured work">
+    <a class="scroll-hint" href="#featured" aria-label="Scroll to featured work">
       <span class="scroll-hint-line" aria-hidden="true"></span>
       <span class="scroll-hint-text">Scroll</span>
     </a>
   </section>
 
-  <!-- ============================================================
-       2. Featured Work — Goldfish Tank MR Art
-       ============================================================ -->
-  <section id="work" class="section section-work">
+  <!-- Teaser for the featured work (full details at /en/work/) -->
+  <section id="featured" class="section section-work">
     <div class="wrap">
       <p class="section-label">Featured Work</p>
       <h2 class="section-title">Goldfish Tank MR Art</h2>
 
-      <div class="work">
-        <!-- ▼ Main visual
-             When an image or video is ready, replace the contents of this
-             <div class="work-visual"> with e.g.
-             <img src="/assets/works/kingyo.jpg" alt="...">.
-             For now it is built entirely in CSS. -->
+      <div class="teaser">
         <div class="work-visual" role="img" aria-label="An abstract impression of goldfish leaping out from the surface of a tank">
           <div class="tank" aria-hidden="true">
             <span class="tank-surface"></span>
@@ -115,176 +98,62 @@
           <p class="work-catch">From the screen, into reality.</p>
           <p class="work-text">
             Goldfish leap out of a tank shown on a PC screen and swim through
-            mixed reality on Meta Quest. I built it to create the moment where
-            what lives inside a screen crosses over into the real room — at
-            events and demos.
+            mixed reality on Meta Quest.
           </p>
-
           <ul class="tags" aria-label="Technologies used">
             <li>Mixed Reality</li>
             <li>WebXR</li>
             <li>Meta Quest</li>
             <li>Interactive Art</li>
           </ul>
-
           <div class="work-actions">
-            <a class="btn btn-primary"
+            <a class="btn btn-primary" href="/en/work/">
+              See the work
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost"
                href="https://kingyo-kappa.vercel.app/tank-pc.html"
                target="_blank" rel="noopener noreferrer">
               Try it on PC
               <span class="btn-external" aria-hidden="true">↗</span>
             </a>
-            <a class="btn btn-ghost" href="#how-to">See how it works</a>
           </div>
-
-          <details class="howto" id="how-to">
-            <summary><span class="howto-summary-text">How to try it</span></summary>
-            <div class="howto-body">
-              <ol class="howto-list">
-                <li>Open the work's URL on a PC or Mac</li>
-                <li>Visit the URL shown on screen using the Meta Quest browser</li>
-                <li>Entering MR mode on Quest connects to the PC automatically</li>
-                <li>Press the start button on the PC to begin</li>
-                <li>The first time you point at the tank with your index finger, hold still a little longer to avoid misdetection</li>
-              </ol>
-              <p class="howto-note">
-                This experience uses both a PC and a Meta Quest. On a PC alone you
-                can still see the tank itself.
-              </p>
-            </div>
-          </details>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       3. About
-       ============================================================ -->
-  <section id="about" class="section">
+  <section class="section section-alt">
     <div class="wrap">
-      <p class="section-label">About</p>
-      <h2 class="section-title">About Shibapapa</h2>
+      <p class="section-label">Explore</p>
+      <h2 class="section-title">More</h2>
 
-      <div class="about-grid">
-        <div class="about-body">
-          <p>Shibapapa is a creator making XR content with AI.</p>
-          <p>
-            Working across AI, 3D, WebXR, AR and MR, I build the feeling that
-            characters and moving images genuinely exist in physical space.
-          </p>
-          <p>
-            I turn small ideas into working prototypes quickly, then grow them —
-            through events, demos and play — into experiences people can't help
-            reaching out to touch.
-          </p>
-        </div>
-
-        <div class="skills">
-          <h3 class="skills-title">Skills</h3>
-          <ul class="skill-list">
-            <li>AI Creative</li>
-            <li>WebXR</li>
-            <li>AR / MR</li>
-            <li>3D Creation</li>
-            <li>Interactive Experience</li>
-            <li>XR Prototyping</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       4. Lab — generated from LAB_ITEMS in /assets/config.js
-       ============================================================ -->
-  <section id="lab" class="section section-alt">
-    <div class="wrap">
-      <p class="section-label">Lab</p>
-      <h2 class="section-title">XR Experiments</h2>
-      <p class="section-lead">
-        A place for prototypes that are being prepared for release. They go
-        public one by one, as they take shape.
-      </p>
-
-      <ul class="cards" id="lab-cards">
-        <noscript>
-          <li class="card"><div class="card-body"><h3 class="card-title">AI Character Experience</h3><p class="card-status">Preparing</p></div></li>
-          <li class="card"><div class="card-body"><h3 class="card-title">Spatial Interactive Art</h3><p class="card-status">Preparing</p></div></li>
-          <li class="card"><div class="card-body"><h3 class="card-title">WebXR Prototype</h3><p class="card-status">Preparing</p></div></li>
-        </noscript>
+      <ul class="nav-cards">
+        <li class="nav-card">
+          <a href="/en/about/">
+            <span class="nav-card-label">About</span>
+            <h3 class="nav-card-title">Profile</h3>
+            <p class="nav-card-text">What I make, and how I go about making it.</p>
+            <span class="nav-card-more">View →</span>
+          </a>
+        </li>
+        <li class="nav-card">
+          <a href="/en/lab/">
+            <span class="nav-card-label">Lab</span>
+            <h3 class="nav-card-title">Experiments</h3>
+            <p class="nav-card-text">Where XR prototypes wait to be released.</p>
+            <span class="nav-card-more">View →</span>
+          </a>
+        </li>
+        <li class="nav-card">
+          <a href="/en/contact/">
+            <span class="nav-card-label">Contact</span>
+            <h3 class="nav-card-title">Get in touch</h3>
+            <p class="nav-card-text">Separate routes for individuals and businesses.</p>
+            <span class="nav-card-more">View →</span>
+          </a>
+        </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. Process
-       ============================================================ -->
-  <section id="process" class="section">
-    <div class="wrap">
-      <p class="section-label">Process</p>
-      <h2 class="section-title">From Idea to Reality</h2>
-
-      <ol class="process">
-        <li class="step">
-          <span class="step-num" aria-hidden="true">01</span>
-          <h3 class="step-title">Imagine</h3>
-          <p class="step-text">Explore ideas and expression with AI</p>
-        </li>
-        <li class="step">
-          <span class="step-num" aria-hidden="true">02</span>
-          <h3 class="step-title">Build</h3>
-          <p class="step-text">Prototype the 3D, visuals and interaction</p>
-        </li>
-        <li class="step">
-          <span class="step-num" aria-hidden="true">03</span>
-          <h3 class="step-title">Connect</h3>
-          <p class="step-text">Bridge into physical space with WebXR / AR / MR</p>
-        </li>
-        <li class="step">
-          <span class="step-num" aria-hidden="true">04</span>
-          <h3 class="step-title">Experience</h3>
-          <p class="step-text">Bring it to people at events and demos</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6. Contact
-       ============================================================ -->
-  <section id="contact" class="section section-alt">
-    <div class="wrap">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Let's Create an Experience</h2>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3 class="contact-card-title">For individuals</h3>
-          <p class="contact-card-text">
-            For personal project enquiries, speaking engagements or advisory
-            work, please reach out via DM on X.
-          </p>
-          <a class="btn btn-primary"
-             href="https://x.com/Mikami_Gugenka"
-             target="_blank" rel="noopener noreferrer">
-            Message on X
-            <span class="btn-external" aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <div class="contact-card" id="corporate-contact">
-          <h3 class="contact-card-title">For businesses</h3>
-          <p class="contact-card-text">
-            For corporate production, IP collaboration and larger XR projects,
-            please contact Gugenka Inc.
-          </p>
-          <!-- href is set from GUGENKA_CONTACT_URL in /assets/config.js -->
-          <a class="btn btn-ghost" href="#corporate-contact" data-gugenka-link>
-            Contact Gugenka
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -297,12 +166,8 @@
       <p class="footer-note">Created as a Gugenka Creator Program case study.</p>
     </div>
     <ul class="footer-links">
-      <li>
-        <a href="https://x.com/Mikami_Gugenka" target="_blank" rel="noopener noreferrer">
-          X<span class="btn-external" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li><a href="#corporate-contact" data-gugenka-link>Gugenka</a></li>
+      <li><a href="https://x.com/Mikami_Gugenka" target="_blank" rel="noopener noreferrer">X<span class="btn-external" aria-hidden="true">↗</span></a></li>
+      <li><a href="#" data-gugenka-link>Gugenka</a></li>
       <li><a href="/" lang="ja" hreflang="ja">日本語</a></li>
     </ul>
   </div>

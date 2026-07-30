@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://shibapapa.com/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <changefreq>monthly</changefreq><priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://shibapapa.com/work/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/work/"/>
+    <changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/about/"/>
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/lab/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/lab/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/lab/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/contact/"/>
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://shibapapa.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq><priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://shibapapa.com/en/work/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/work/"/>
+    <changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/about/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/en/lab/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/lab/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/lab/"/>
+    <changefreq>monthly</changefreq><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://shibapapa.com/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://shibapapa.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shibapapa.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shibapapa.com/contact/"/>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+
 </urlset>

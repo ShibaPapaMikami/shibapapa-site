@@ -11,8 +11,12 @@
 ## ファイル構成
 
 ```
-index.html          日本語ページ（/）
-en/index.html       英語ページ（/en/）
+index.html          日本語トップ（/）
+work/index.html     作品（/work/）
+about/index.html    プロフィール（/about/）
+lab/index.html      試作（/lab/）
+contact/index.html  お問い合わせ（/contact/）
+en/…                上記の英語版（/en/, /en/work/, /en/about/, /en/lab/, /en/contact/）
 404.html            存在しないURLに来た時のページ（日英併記）
 assets/style.css    見た目。色は先頭のCSS変数で一括変更できる
 assets/config.js    ★リンクとLabの内容。編集するのは基本ここだけ
@@ -25,12 +29,30 @@ robots.txt / sitemap.xml / .nojekyll
 **アセットの参照はすべてルート絶対パス（`/assets/...`）** です。`/en/` から
 参照しても壊れないようにするためなので、相対パスに戻さないでください。
 
+## ページ構成
+
+メニュー項目ごとに独立したページです（1ページ完結ではありません）。
+
+| ページ | 日本語 | 英語 | 内容 |
+|---|---|---|---|
+| トップ | `/` | `/en/` | Hero＋作品ティザー＋各ページへの導線 |
+| 作品 | `/work/` | `/en/work/` | 金魚水槽MRアートの詳細と利用手順 |
+| プロフィール | `/about/` | `/en/about/` | About＋Skills＋Process |
+| 試作 | `/lab/` | `/en/lab/` | XR Experiments（config.jsから生成） |
+| お問い合わせ | `/contact/` | `/en/contact/` | 個人向け／法人向けの2窓口 |
+
+- 各ページの `<h1>` は1つだけ。現在地のメニューには `aria-current="page"` が付き、
+  下線で示されます
+- ヘッダー・フッターは**各HTMLに直接書いてあります**（ビルド不要の構成のため）。
+  ナビゲーションやフッターを変えるときは**10ファイルすべて**を更新してください
+- 言語切替は**同じページの相手言語**に飛びます（`/work/` ↔ `/en/work/`）
+
 ## 多言語対応
 
 | 言語 | URL | ファイル |
 |---|---|---|
-| 日本語 | `/` | `index.html` |
-| 英語 | `/en/` | `en/index.html` |
+| 日本語 | `/` ほか | `index.html` / `work/` / `about/` / `lab/` / `contact/` |
+| 英語 | `/en/` ほか | `en/` 以下に同じ構成 |
 
 - **本文は各HTMLに直接書いてあります。** 片方だけ直すと内容がずれるので、
   文言を変えるときは両方を更新してください
