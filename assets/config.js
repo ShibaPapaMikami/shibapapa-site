@@ -13,7 +13,7 @@
  * 未確定の間は '#corporate-contact' のままにしておくと、
  * ページ内の法人向けセクションへスクロールする仮リンクとして動作します。
  */
-const GUGENKA_CONTACT_URL = '#corporate-contact';
+const GUGENKA_CONTACT_URL = 'https://gugenka.jp/contact';
 
 /**
  * Lab（XR Experiments）に並べるカード
