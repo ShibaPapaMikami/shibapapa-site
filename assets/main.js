@@ -1,9 +1,20 @@
 /* =========================================================
    assets/config.js の設定をページに反映する
    （編集が必要なのは config.js だけです）
+
+   ページの言語は <html lang="..."> から判定します。
    ========================================================= */
 (function () {
   'use strict';
+
+  var lang = (document.documentElement.getAttribute('lang') || 'ja').slice(0, 2);
+
+  /** { ja: '…', en: '…' } でも素の文字列でも受け取れるようにする */
+  function t(value) {
+    if (value == null) return '';
+    if (typeof value === 'string') return value;
+    return value[lang] || value.ja || value.en || '';
+  }
 
   /* ---- 法人問い合わせ先リンク ---- */
   var url =
@@ -35,6 +46,9 @@
   var list = document.getElementById('lab-cards');
   if (!list || typeof LAB_ITEMS === 'undefined' || !LAB_ITEMS.length) return;
 
+  var preparingLabel =
+    typeof UI_TEXT !== 'undefined' ? t(UI_TEXT.preparing) : 'Preparing';
+
   list.innerHTML = '';
 
   LAB_ITEMS.forEach(function (item) {
@@ -50,12 +64,12 @@
     if (item.image) {
       var img = document.createElement('img');
       img.src = item.image;
-      img.alt = item.alt || '';
+      img.alt = t(item.alt);
       img.loading = 'lazy';
       img.decoding = 'async';
       media.appendChild(img);
     } else if (item.video) {
-      // 自動再生はしない。コントロールを表示して利用者の操作に任せる
+      // 自動再生はしない。コントロールを出して利用者の操作に任せる
       var video = document.createElement('video');
       video.src = item.video;
       video.controls = true;
@@ -73,30 +87,31 @@
 
     var h3 = document.createElement('h3');
     h3.className = 'card-title';
-    h3.textContent = item.title;
+    h3.textContent = t(item.title);
     body.appendChild(h3);
 
     if (item.status === 'preparing') {
       var status = document.createElement('p');
       status.className = 'card-status';
-      status.textContent = 'Preparing';
+      status.textContent = preparingLabel;
       body.appendChild(status);
     }
 
-    if (item.text) {
+    var text = t(item.text);
+    if (text) {
       var p = document.createElement('p');
       p.className = 'card-text';
-      p.textContent = item.text;
+      p.textContent = text;
       body.appendChild(p);
     }
 
     if (Array.isArray(item.tags) && item.tags.length) {
       var ul = document.createElement('ul');
       ul.className = 'tags tags-sm';
-      item.tags.forEach(function (t) {
-        var tag = document.createElement('li');
-        tag.textContent = t;
-        ul.appendChild(tag);
+      item.tags.forEach(function (tag) {
+        var liTag = document.createElement('li');
+        liTag.textContent = t(tag);
+        ul.appendChild(liTag);
       });
       body.appendChild(ul);
     }

@@ -11,8 +11,9 @@
 ## ファイル構成
 
 ```
-index.html          全セクション。本文はここを編集
-404.html            存在しないURLに来た時のページ
+index.html          日本語ページ（/）
+en/index.html       英語ページ（/en/）
+404.html            存在しないURLに来た時のページ（日英併記）
 assets/style.css    見た目。色は先頭のCSS変数で一括変更できる
 assets/config.js    ★リンクとLabの内容。編集するのは基本ここだけ
 assets/main.js      config.js の内容をページに反映する
@@ -21,13 +22,43 @@ CNAME               独自ドメイン設定（GitHub Pages が読む。消さ�
 robots.txt / sitemap.xml / .nojekyll
 ```
 
+**アセットの参照はすべてルート絶対パス（`/assets/...`）** です。`/en/` から
+参照しても壊れないようにするためなので、相対パスに戻さないでください。
+
+## 多言語対応
+
+| 言語 | URL | ファイル |
+|---|---|---|
+| 日本語 | `/` | `index.html` |
+| 英語 | `/en/` | `en/index.html` |
+
+- **本文は各HTMLに直接書いてあります。** 片方だけ直すと内容がずれるので、
+  文言を変えるときは両方を更新してください
+- **ナビゲーションはそれぞれの言語**です（日本語ページは「作品／プロフィール／
+  試作／お問い合わせ」、英語ページは「Work / About / Lab / Contact」）
+- ヘッダー右の言語切替は「切り替え先」を表示します
+  （日本語ページには `EN`、英語ページには `日本語`）
+- `hreflang` と `canonical` は両ページに設定済み。sitemap.xml にも両方を登録
+
+### 言語を追加する場合
+
+1. `en/` をコピーして `fr/` などを作り、`<html lang="fr">` と本文を差し替える
+2. 両ページの `<link rel="alternate" hreflang="...">` に新しい言語を追加
+3. `sitemap.xml` に URL を追加
+4. `assets/config.js` の `LAB_ITEMS` と `UI_TEXT` に `fr:` のキーを足す
+
+`assets/config.js` の文字列は `{ ja: '…', en: '…' }` の形で書くと、ページの
+`<html lang>` に応じて自動で切り替わります。素の文字列にすると全言語共通です。
+
 ## ローカルで確認する
 
 ```bash
 node .claude/dev-server.js
 ```
 
-→ ブラウザで http://localhost:8000 を開く。
+→ ブラウザで http://localhost:8010 を開く（`/en/` で英語ページ）。
+
+ポートを変えたいときは `PORT=8020 node .claude/dev-server.js`。
 
 ## 公開
 
