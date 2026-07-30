@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShibaPapa Studio</title>
-<meta name="description" content="ShibaPapa Studio の公式サイト。制作物、プロフィール、お問い合わせ。">
+<title>しばぱぱ｜AIで、現実に出会うXRをつくる。</title>
+<meta name="description" content="しばぱぱ（Masafumi Mikami）は、AIを使ってXRコンテンツをつくるクリエイターです。AI、3D、WebXR、AR/MRを横断し、キャラクターと空間の新しい体験を試作しています。">
 <link rel="canonical" href="https://shibapapa.com/">
+<meta name="color-scheme" content="light">
 
-<!-- OGP（SNSでシェアされた時の見た目） -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shibapapa.com/">
-<meta property="og:title" content="ShibaPapa Studio">
-<meta property="og:description" content="ShibaPapa Studio の公式サイト。制作物、プロフィール、お問い合わせ。">
-<meta property="og:image" content="https://shibapapa.com/assets/ogp.png">
-<meta property="og:site_name" content="ShibaPapa Studio">
+<meta property="og:title" content="しばぱぱ｜AIで、現実に出会うXRをつくる。">
+<meta property="og:description" content="AI、3D、WebXR、AR/MRを使い、キャラクターと空間の新しい体験を試作しています。">
+<meta property="og:site_name" content="SHIBAPAPA">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -25,13 +24,14 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="/">
-      <span class="brand-mark" aria-hidden="true">🐕</span>
-      <span class="brand-text">ShibaPapa&nbsp;Studio</span>
+    <a class="brand" href="#top" aria-label="SHIBAPAPA ホーム">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">SHIBAPAPA</span>
     </a>
     <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#works">Works</a>
+      <a href="#lab">Lab</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -39,128 +39,232 @@
 
 <main id="main">
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
+  <!-- ============================================================
+       1. ファーストビュー
+       ============================================================ -->
+  <section class="hero" id="top">
+    <div class="hero-water" aria-hidden="true">
+      <span class="ripple ripple-1"></span>
+      <span class="ripple ripple-2"></span>
+      <span class="ripple ripple-3"></span>
+    </div>
+
     <div class="wrap hero-inner">
-      <p class="eyebrow">ShibaPapa Studio</p>
-      <h1 class="hero-title">
-        つくることを、<br>たのしむスタジオ。
-      </h1>
+      <p class="eyebrow">しばぱぱ / Masafumi Mikami</p>
+      <h1 class="hero-title">AIで、<br>現実に出会うXRをつくる。</h1>
       <p class="hero-lead">
-        ここにスタジオの一言紹介を書きます。何をつくっているか、誰に向けているかを
-        2〜3行で伝えると、初めて訪れた人にいちばん届きます。
+        AI、3D、WebXR、AR/MRを使い、キャラクターと空間の新しい体験を試作しています。
       </p>
+
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#works">制作物を見る</a>
+        <a class="btn btn-primary" href="#work">
+          作品を体験する
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
         <a class="btn btn-ghost" href="#contact">お問い合わせ</a>
+      </div>
+
+      <p class="hero-role">AIを使ってXRコンテンツをつくるクリエイター</p>
+    </div>
+
+    <a class="scroll-hint" href="#work" aria-label="Featured Work へスクロール">
+      <span class="scroll-hint-line" aria-hidden="true"></span>
+      <span class="scroll-hint-text">Scroll</span>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       2. Featured Work — 金魚水槽 MRアート
+       ============================================================ -->
+  <section id="work" class="section section-work">
+    <div class="wrap">
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">金魚水槽 MRアート</h2>
+
+      <div class="work">
+        <!-- ▼ メインビジュアル
+             画像や動画が用意できたら、この <div class="work-visual"> の中身を
+             <img src="assets/works/kingyo.jpg" alt="..."> などに差し替えてください。
+             現状はCSSのみの抽象的な水面表現で成立させています。 -->
+        <div class="work-visual" role="img" aria-label="水槽の水面から金魚が飛び出していく様子を抽象化したイメージ">
+          <div class="tank" aria-hidden="true">
+            <span class="tank-surface"></span>
+            <span class="tank-glow"></span>
+            <span class="fish fish-1"></span>
+            <span class="fish fish-2"></span>
+            <span class="fish fish-3"></span>
+            <span class="trail trail-1"></span>
+            <span class="trail trail-2"></span>
+          </div>
+        </div>
+
+        <div class="work-body">
+          <p class="work-catch">PCの画面から、現実へ。</p>
+          <p class="work-text">
+            PCに表示された水槽から金魚が飛び出し、Meta QuestのMR空間を泳ぐ体験作品。
+            イベントやデモで、画面の中の表現が現実へつながる瞬間をつくるために制作しました。
+          </p>
+
+          <ul class="tags" aria-label="使用技術">
+            <li>Mixed Reality</li>
+            <li>WebXR</li>
+            <li>Meta Quest</li>
+            <li>Interactive Art</li>
+          </ul>
+
+          <div class="work-actions">
+            <a class="btn btn-primary"
+               href="https://kingyo-kappa.vercel.app/tank-pc.html"
+               target="_blank" rel="noopener noreferrer">
+              PCで体験する
+              <span class="btn-external" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn-ghost" href="#how-to">使い方を見る</a>
+          </div>
+
+          <details class="howto" id="how-to">
+            <summary>
+              <span class="howto-summary-text">利用手順を見る</span>
+            </summary>
+            <div class="howto-body">
+              <ol class="howto-list">
+                <li>PCまたはMacで作品URLを開く</li>
+                <li>表示されたURLへMeta Questのブラウザでアクセス</li>
+                <li>QuestでMRモードに入るとPCと自動接続</li>
+                <li>PC側の「はじめる」ボタンから開始</li>
+                <li>最初に水槽を人差し指で指す際は、誤判定を防ぐため少し長めに静止する</li>
+              </ol>
+              <p class="howto-note">
+                PCとMeta Questの両方を使う体験です。PC単体では水槽の表示までを確認できます。
+              </p>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== About ===== -->
+  <!-- ============================================================
+       3. About
+       ============================================================ -->
   <section id="about" class="section">
     <div class="wrap">
       <p class="section-label">About</p>
-      <h2 class="section-title">スタジオについて</h2>
+      <h2 class="section-title">About Shibapapa</h2>
 
       <div class="about-grid">
         <div class="about-body">
+          <p>しばぱぱは、AIを使ってXRコンテンツをつくるクリエイターです。</p>
           <p>
-            ここに自己紹介・スタジオ紹介の本文を書きます。設立の経緯、大事にしていること、
-            得意な領域など。長すぎない方が読まれます（300〜500文字くらいが目安）。
+            AI、3D、WebXR、AR、MRを横断しながら、キャラクターや映像が現実空間に存在する感覚をつくっています。
           </p>
           <p>
-            2段落目には、これまでの経歴や実績のハイライトを。数字や固有名詞が入ると
-            説得力が出ます。
+            小さな試作を素早く形にし、イベント、デモ、遊びの中で人が思わず触れたくなる体験へ育てていきます。
           </p>
         </div>
 
-        <dl class="facts">
-          <div class="fact">
-            <dt>拠点</dt>
-            <dd>日本</dd>
-          </div>
-          <div class="fact">
-            <dt>領域</dt>
-            <dd>企画 / 制作 / 開発</dd>
-          </div>
-          <div class="fact">
-            <dt>設立</dt>
-            <dd>20XX年</dd>
-          </div>
-        </dl>
+        <div class="skills">
+          <h3 class="skills-title">Skills</h3>
+          <ul class="skill-list">
+            <li>AI Creative</li>
+            <li>WebXR</li>
+            <li>AR / MR</li>
+            <li>3D Creation</li>
+            <li>Interactive Experience</li>
+            <li>XR Prototyping</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Works ===== -->
-  <section id="works" class="section section-alt">
+  <!-- ============================================================
+       4. Lab — assets/config.js の LAB_ITEMS から生成
+       ============================================================ -->
+  <section id="lab" class="section section-alt">
     <div class="wrap">
-      <p class="section-label">Works</p>
-      <h2 class="section-title">制作物</h2>
-      <p class="section-lead">これまでに手がけたもの。カードを増やす／減らすだけで調整できます。</p>
+      <p class="section-label">Lab</p>
+      <h2 class="section-title">XR Experiments</h2>
+      <p class="section-lead">
+        公開準備中の試作を置く場所です。形になったものから順に公開していきます。
+      </p>
 
-      <ul class="cards">
-        <li class="card">
-          <div class="card-thumb" aria-hidden="true">
-            <span>01</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">プロジェクト名</h3>
-            <p class="card-text">
-              どんなものを、誰のために、どう作ったか。1〜2行で。
-            </p>
-            <p class="card-meta">2025 / カテゴリ</p>
-          </div>
-        </li>
-
-        <li class="card">
-          <div class="card-thumb" aria-hidden="true">
-            <span>02</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">プロジェクト名</h3>
-            <p class="card-text">
-              どんなものを、誰のために、どう作ったか。1〜2行で。
-            </p>
-            <p class="card-meta">2024 / カテゴリ</p>
-          </div>
-        </li>
-
-        <li class="card">
-          <div class="card-thumb" aria-hidden="true">
-            <span>03</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">プロジェクト名</h3>
-            <p class="card-text">
-              どんなものを、誰のために、どう作ったか。1〜2行で。
-            </p>
-            <p class="card-meta">2024 / カテゴリ</p>
-          </div>
-        </li>
+      <ul class="cards" id="lab-cards">
+        <noscript>
+          <li class="card"><div class="card-body"><h3 class="card-title">AI Character Experience</h3><p class="card-status">Preparing</p></div></li>
+          <li class="card"><div class="card-body"><h3 class="card-title">Spatial Interactive Art</h3><p class="card-status">Preparing</p></div></li>
+          <li class="card"><div class="card-body"><h3 class="card-title">WebXR Prototype</h3><p class="card-status">Preparing</p></div></li>
+        </noscript>
       </ul>
     </div>
   </section>
 
-  <!-- ===== Contact ===== -->
-  <section id="contact" class="section">
+  <!-- ============================================================
+       5. Process
+       ============================================================ -->
+  <section id="process" class="section">
+    <div class="wrap">
+      <p class="section-label">Process</p>
+      <h2 class="section-title">From Idea to Reality</h2>
+
+      <ol class="process">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3 class="step-title">Imagine</h3>
+          <p class="step-text">AIでアイデアと表現を探索</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3 class="step-title">Build</h3>
+          <p class="step-text">3D・映像・インタラクションを試作</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3 class="step-title">Connect</h3>
+          <p class="step-text">WebXR / AR / MRで現実空間へ接続</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">04</span>
+          <h3 class="step-title">Experience</h3>
+          <p class="step-text">イベントやデモで人に届ける</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. Contact
+       ============================================================ -->
+  <section id="contact" class="section section-alt">
     <div class="wrap">
       <p class="section-label">Contact</p>
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="section-lead">
-        お仕事のご相談・ご質問はメールでどうぞ。
-      </p>
+      <h2 class="section-title">Let's Create an Experience</h2>
 
-      <p class="contact-mail">
-        <a href="mailto:mikami@shibapapa.com">mikami@shibapapa.com</a>
-      </p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 class="contact-card-title">個人へのご相談</h3>
+          <p class="contact-card-text">
+            個人での制作相談、登壇、アドバイザーのご相談は、XのDMからご連絡ください。
+          </p>
+          <a class="btn btn-primary"
+             href="https://x.com/Mikami_Gugenka"
+             target="_blank" rel="noopener noreferrer">
+            Xで連絡する
+            <span class="btn-external" aria-hidden="true">↗</span>
+          </a>
+        </div>
 
-      <ul class="links" aria-label="外部リンク">
-        <li><a href="#" rel="me">X (Twitter)</a></li>
-        <li><a href="#" rel="me">GitHub</a></li>
-        <li><a href="#" rel="me">YouTube</a></li>
-      </ul>
+        <div class="contact-card" id="corporate-contact">
+          <h3 class="contact-card-title">法人のご相談</h3>
+          <p class="contact-card-text">
+            法人の制作、IP活用、XRプロジェクトのご相談は、株式会社Gugenkaへ。
+          </p>
+          <!-- href は assets/config.js の GUGENKA_CONTACT_URL で差し替わります -->
+          <a class="btn btn-ghost" href="#corporate-contact" data-gugenka-link>
+            Gugenkaへ相談する
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -168,13 +272,26 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p class="copyright">© <span id="year">2026</span> ShibaPapa Studio</p>
+    <div class="footer-meta">
+      <p class="copyright">© Shibapapa</p>
+      <p class="footer-note">Created as a Gugenka Creator Program case study.</p>
+    </div>
+    <ul class="footer-links">
+      <li>
+        <a href="https://x.com/Mikami_Gugenka" target="_blank" rel="noopener noreferrer">
+          X<span class="btn-external" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="#corporate-contact" data-gugenka-link>
+          Gugenka
+        </a>
+      </li>
+    </ul>
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+<script src="assets/config.js"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>

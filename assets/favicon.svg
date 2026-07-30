@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#c8763a"/>
-  <!-- 柴犬シルエット（簡易） -->
-  <path d="M18 20 L26 30 L18 34 Z" fill="#fdfbf9"/>
-  <path d="M46 20 L38 30 L46 34 Z" fill="#fdfbf9"/>
-  <path d="M32 24c8 0 13 6 13 13 0 7-6 12-13 12s-13-5-13-12c0-7 5-13 13-13z" fill="#fdfbf9"/>
-  <circle cx="26" cy="36" r="2.4" fill="#23201d"/>
-  <circle cx="38" cy="36" r="2.4" fill="#23201d"/>
-  <path d="M32 42c-2.2 0-4 1.4-4 3.2 0 1.6 1.8 2.8 4 2.8s4-1.2 4-2.8c0-1.8-1.8-3.2-4-3.2z" fill="#23201d"/>
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#e2e9f0" stroke-width="2"/>
+  <!-- 水面 -->
+  <path d="M10 40 Q20 35 32 40 T54 40" fill="none" stroke="#0a9fb4" stroke-width="2.5" stroke-linecap="round" opacity=".65"/>
+  <!-- 金魚 -->
+  <path d="M26 26c7 0 12 4 12 9s-5 9-12 9-12-4-12-9 5-9 12-9z" fill="#f2662a"/>
+  <path d="M38 35l10-7v14z" fill="#d94d14"/>
+  <circle cx="21" cy="32" r="2" fill="#ffffff"/>
 </svg>
