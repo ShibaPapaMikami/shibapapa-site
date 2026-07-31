@@ -36,7 +36,11 @@ src/
   styles/global.css  見た目。色と書体は先頭のCSS変数で一括変更できる
 public/
   CNAME          独自ドメイン設定（消さないこと）
-  .nojekyll / robots.txt / sitemap.xml / assets/favicon.svg
+  .nojekyll / robots.txt / sitemap.xml
+  assets/favicon.svg / assets/og-ja.png / assets/og-en.png
+scripts/
+  publish.sh     gh-pages へ公開
+  make-og.sh     OGP画像を生成（scripts/og/*.html から）
 .github/workflows/deploy.yml   push すると自動でビルド＆デプロイ
 ```
 
@@ -131,9 +135,22 @@ export const KINGYO_MEDIA = {
 `{ ja: '…', en: '…' }` の形で書くと言語に応じて切り替わります。
 画像は `public/assets/works/` に置いてください。
 
-### 3. OGP画像
+### 3. OGP画像（SNSシェア時のサムネイル）
 
-`Base.astro` の `<head>` に `og:image` を追加してください。
+**設定済みです。** 日本語ページは `og-ja.png`、英語ページは `og-en.png` が
+自動で選ばれます（1200×630）。
+
+文言やデザインを変えたいときは `scripts/og/{ja,en}.html` を編集して、
+
+```bash
+bash scripts/make-og.sh
+```
+
+を実行すると `public/assets/og-{ja,en}.png` が作り直されます。
+headless Chrome で描画するので、**サイトと同じOS標準の明朝**になります。
+
+画像を自分で用意する場合は `public/assets/og-{ja,en}.png` を直接置き換えても
+構いません（1200×630 を維持してください）。
 
 ---
 

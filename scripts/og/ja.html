@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #ffffff;
+    color: #1b1a18;
+    font-family: system-ui, -apple-system, "Helvetica Neue", Arial,
+                 "Hiragino Mincho ProN", "Yu Mincho", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 74px 88px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rule { position: absolute; left: 0; right: 0; height: 1px; background: #e3e0da; }
+  .rule-top { top: 0; }
+  .rule-bottom { bottom: 0; }
+
+  .brand {
+    display: flex; align-items: center; gap: 16px;
+    font-size: 30px; font-weight: 600; letter-spacing: .16em;
+  }
+  .mark {
+    width: 30px; height: 30px;
+    border-radius: 50% 50% 50% 12%;
+    background: linear-gradient(140deg, #f2662a, #d94d14);
+    transform: rotate(-12deg);
+  }
+
+  h1 {
+    font-size: 66px;
+    white-space: nowrap;
+    font-weight: 600;
+    line-height: 1.36;
+    letter-spacing: .02em;
+  }
+
+  .foot {
+    display: flex; align-items: flex-end; justify-content: space-between;
+  }
+  .role { font-size: 25px; color: #5a5650; letter-spacing: .04em; }
+  .domain {
+    font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 22px; color: #5a5650; letter-spacing: .1em;
+  }
+
+  /* 水面を思わせる細い弧（控えめに） */
+  .arc {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(10, 159, 180, .16);
+  }
+  .arc-1 { width: 520px; height: 520px; right: -150px; top: -130px; }
+  .arc-2 { width: 300px; height: 300px; right: 90px;  bottom: -140px; }
+</style>
+</head>
+<body>
+  <span class="rule rule-top"></span>
+  <span class="rule rule-bottom"></span>
+  <span class="arc arc-1"></span>
+  <span class="arc arc-2"></span>
+
+  <div class="brand"><span class="mark"></span>SHIBAPAPA</div>
+
+  <h1>AIで、<br>現実に出会うXRをつくる。</h1>
+
+  <div class="foot">
+    <p class="role">しばぱぱ / Masafumi Mikami</p>
+    <p class="domain">shibapapa.com</p>
+  </div>
+</body>
+</html>
