@@ -59,14 +59,33 @@ public/
 
 ## 公開
 
-`main` に push すると GitHub Actions がビルドしてデプロイします（数分）。
+`main` にはソースだけを置き、**ビルド結果は `gh-pages` ブランチ**に公開します。
+GitHub Pages は `gh-pages` を配信しています。
 
 ```bash
-git add -A && git commit -m "サイトを更新" && git push
+git add -A && git commit -m "サイトを更新" && git push   # ソースを保存
+npm run publish                                          # ビルドして公開
 ```
 
-> GitHub の Settings → Pages で、Source が **GitHub Actions** になっている必要があります。
-> ブランチ配信のままだとビルド前のソースが公開されてしまいます。
+`npm run publish` がやること: `npm run build` → `dist/` を `gh-pages` へ force push
+→ Pages のビルドを起動。反映まで1〜2分です。
+
+> **push しただけでは公開されません。** 必ず `npm run publish` を実行してください。
+
+### CI（GitHub Actions）に切り替える場合
+
+`.github/workflows/deploy.yml` は用意済みですが、**リポジトリに入っていません**。
+GitHub CLI のトークンに `workflow` スコープが無く、push が拒否されるためです。
+
+自動デプロイに切り替えたい場合は、ターミナルで一度だけ以下を実行してください。
+
+```bash
+gh auth refresh -s workflow
+```
+
+ブラウザでの承認後、ワークフローを push し、Settings → Pages の Source を
+**GitHub Actions** に変更すれば、`git push` だけで公開されるようになります。
+その後は `npm run publish` は不要です。
 
 ---
 
