@@ -1,0 +1,33 @@
+---
+import { localePath, UI, otherLang } from '../data/nav.js';
+import { GUGENKA_CONTACT_URL, X_URL } from '../data/site.js';
+
+const { lang = 'ja', path = '/' } = Astro.props;
+const other = otherLang(lang);
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-meta">
+      <p class="copyright">© Shibapapa</p>
+      <p class="footer-note">{UI.footerNote}</p>
+    </div>
+    <ul class="footer-links">
+      <li>
+        <a href={X_URL} target="_blank" rel="noopener noreferrer">
+          X<span class="btn-external" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href={GUGENKA_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+          {UI.gugenka[lang]}<span class="btn-external" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href={localePath(path, other)} lang={other} hreflang={other}>
+          {UI.otherLangName[lang]}
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>

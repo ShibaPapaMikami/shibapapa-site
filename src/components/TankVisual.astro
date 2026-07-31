@@ -1,0 +1,25 @@
+---
+/*
+  抽象的な水槽ビジュアル（CSSのみ・画像ファイル不要）
+
+  ▼ 差し替え方
+  実際の画像や動画が用意できたら、このコンポーネントの中身を
+  <img src="/assets/works/kingyo.jpg" alt="..." /> に置き換えてください。
+  アスペクト比・角丸・枠線は .work-visual 側で効くのでそのまま収まります。
+
+  ※ Stage B ではここが「生きた水槽」（WebGPU/WebGL2 canvas）に置き換わります。
+*/
+const { label } = Astro.props;
+---
+
+<div class="work-visual" role="img" aria-label={label}>
+  <div class="tank" aria-hidden="true">
+    <span class="tank-surface"></span>
+    <span class="tank-glow"></span>
+    <span class="fish fish-1"></span>
+    <span class="fish fish-2"></span>
+    <span class="fish fish-3"></span>
+    <span class="trail trail-1"></span>
+    <span class="trail trail-2"></span>
+  </div>
+</div>

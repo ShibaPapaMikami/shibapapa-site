@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import LabCards from '../LabCards.astro';
+import { meta, lab } from '../../data/content.js';
+import { localePath } from '../../data/nav.js';
+
+const { lang } = Astro.props;
+const m = meta.lab[lang];
+const l = lab[lang];
+---
+
+<Base
+  lang={lang}
+  path="/lab/"
+  currentKey="lab"
+  title={m.title}
+  description={m.description}
+  ogDescription={m.ogDescription}
+>
+
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <p class="eyebrow">{l.label}</p>
+      <h1 class="page-title">{l.title}</h1>
+      <p class="page-lead">{l.lead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <LabCards lang={lang} />
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="wrap page-next-inner">
+      <p class="page-next-text">{l.nextText}</p>
+      <a class="btn btn-primary" href={localePath('/work/', lang)}>
+        {l.nextCta}<span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</Base>

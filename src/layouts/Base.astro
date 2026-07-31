@@ -1,0 +1,64 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localePath, UI } from '../data/nav.js';
+import { SITE_URL } from '../data/site.js';
+import '../styles/global.css';
+
+const {
+  lang = 'ja',
+  path = '/',
+  title,
+  description,
+  currentKey = null,
+  ogType = 'website',
+  ogTitle,
+  ogDescription,
+} = Astro.props;
+
+const jaUrl = SITE_URL + localePath(path, 'ja');
+const enUrl = SITE_URL + localePath(path, 'en');
+const canonical = lang === 'ja' ? jaUrl : enUrl;
+const locale = lang === 'ja' ? 'ja_JP' : 'en_US';
+const altLocale = lang === 'ja' ? 'en_US' : 'ja_JP';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta name="color-scheme" content="light" />
+
+  <link rel="alternate" hreflang="ja" href={jaUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={jaUrl} />
+
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={ogTitle ?? title} />
+  <meta property="og:description" content={ogDescription ?? description} />
+  <meta property="og:site_name" content="SHIBAPAPA" />
+  <meta property="og:locale" content={locale} />
+  <meta property="og:locale:alternate" content={altLocale} />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">{UI.skip[lang]}</a>
+
+<Header lang={lang} currentKey={currentKey} path={path} />
+
+<main id="main">
+  <slot />
+</main>
+
+<Footer lang={lang} path={path} />
+
+</body>
+</html>

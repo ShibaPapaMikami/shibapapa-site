@@ -1,0 +1,82 @@
+---
+import { LAB_ITEMS, pick } from '../data/site.js';
+import { UI } from '../data/nav.js';
+
+const { lang = 'ja' } = Astro.props;
+---
+
+<ul class="cards">
+  {LAB_ITEMS.map((item) => {
+    const title = pick(item.title, lang);
+    const text = pick(item.text, lang);
+    const alt = pick(item.alt, lang);
+    const external = item.url && /^https?:\/\//i.test(item.url);
+
+    const media = item.image
+      ? { kind: 'image' }
+      : item.video
+        ? { kind: 'video' }
+        : { kind: 'empty' };
+
+    return (
+      <li class={`card${item.url ? ' card-clickable' : ''}`}>
+        <Fragment>
+          {item.url ? (
+            <a
+              class="card-link"
+              href={item.url}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener noreferrer' : undefined}
+            >
+              {media.kind === 'image' && (
+                <div class="card-media">
+                  <img src={item.image} alt={alt} loading="lazy" decoding="async" />
+                </div>
+              )}
+              {media.kind === 'video' && (
+                <div class="card-media">
+                  <video src={item.video} controls preload="none" poster={item.poster}></video>
+                </div>
+              )}
+              {media.kind === 'empty' && <div class="card-media card-media-empty" aria-hidden="true"></div>}
+              <div class="card-body">
+                <h2 class="card-title">{title}</h2>
+                {item.status === 'preparing' && <p class="card-status">{UI.preparing[lang]}</p>}
+                {text && <p class="card-text">{text}</p>}
+                {item.tags?.length > 0 && (
+                  <ul class="tags tags-sm">
+                    {item.tags.map((t) => <li>{pick(t, lang)}</li>)}
+                  </ul>
+                )}
+              </div>
+            </a>
+          ) : (
+            <Fragment>
+              {media.kind === 'image' && (
+                <div class="card-media">
+                  <img src={item.image} alt={alt} loading="lazy" decoding="async" />
+                </div>
+              )}
+              {media.kind === 'video' && (
+                <div class="card-media">
+                  <video src={item.video} controls preload="none" poster={item.poster}></video>
+                </div>
+              )}
+              {media.kind === 'empty' && <div class="card-media card-media-empty" aria-hidden="true"></div>}
+              <div class="card-body">
+                <h2 class="card-title">{title}</h2>
+                {item.status === 'preparing' && <p class="card-status">{UI.preparing[lang]}</p>}
+                {text && <p class="card-text">{text}</p>}
+                {item.tags?.length > 0 && (
+                  <ul class="tags tags-sm">
+                    {item.tags.map((t) => <li>{pick(t, lang)}</li>)}
+                  </ul>
+                )}
+              </div>
+            </Fragment>
+          )}
+        </Fragment>
+      </li>
+    );
+  })}
+</ul>

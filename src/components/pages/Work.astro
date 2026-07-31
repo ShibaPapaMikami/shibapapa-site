@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import TankVisual from '../TankVisual.astro';
+import { meta, work, TAGS } from '../../data/content.js';
+import { localePath } from '../../data/nav.js';
+import { KINGYO_URL } from '../../data/site.js';
+
+const { lang } = Astro.props;
+const m = meta.work[lang];
+const w = work[lang];
+---
+
+<Base
+  lang={lang}
+  path="/work/"
+  currentKey="work"
+  title={m.title}
+  description={m.description}
+  ogType="article"
+  ogTitle={m.ogTitle}
+  ogDescription={m.ogDescription}
+>
+
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <p class="eyebrow">{w.label}</p>
+      <h1 class="page-title">{w.title}</h1>
+      <p class="page-lead">{w.pageLead}</p>
+    </div>
+  </section>
+
+  <section class="section section-work">
+    <div class="wrap">
+      <div class="work">
+        <TankVisual label={w.visualAlt} />
+
+        <div class="work-body">
+          <p class="work-catch">{w.catch}</p>
+          <p class="work-text">{w.text}</p>
+
+          <ul class="tags" aria-label={w.tagsLabel}>
+            {TAGS.map((tag) => <li>{tag}</li>)}
+          </ul>
+
+          <div class="work-actions">
+            <a class="btn btn-primary" href={KINGYO_URL} target="_blank" rel="noopener noreferrer">
+              {w.tryCta}<span class="btn-external" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn-ghost" href="#how-to">{w.howtoCta}</a>
+          </div>
+
+          <details class="howto" id="how-to">
+            <summary><span class="howto-summary-text">{w.howtoSummary}</span></summary>
+            <div class="howto-body">
+              <ol class="howto-list">
+                {w.howtoSteps.map((s) => <li>{s}</li>)}
+              </ol>
+              <p class="howto-note">{w.howtoNote}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="wrap page-next-inner">
+      <p class="page-next-text">{w.nextText}</p>
+      <a class="btn btn-ghost" href={localePath('/lab/', lang)}>
+        {w.nextCta}<span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</Base>

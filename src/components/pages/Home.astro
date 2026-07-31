@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import TankVisual from '../TankVisual.astro';
+import { meta, home, work, TAGS } from '../../data/content.js';
+import { localePath } from '../../data/nav.js';
+import { KINGYO_URL } from '../../data/site.js';
+
+const { lang } = Astro.props;
+const m = meta.home[lang];
+const t = home[lang];
+const w = work[lang];
+---
+
+<Base lang={lang} path="/" title={m.title} description={m.description} ogDescription={m.ogDescription}>
+
+  <section class="hero">
+    <div class="hero-water" aria-hidden="true">
+      <span class="ripple ripple-1"></span>
+      <span class="ripple ripple-2"></span>
+      <span class="ripple ripple-3"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1 class="hero-title">{t.titleLines[0]}<br />{t.titleLines[1]}</h1>
+      <p class="hero-lead">{t.lead}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={localePath('/work/', lang)}>
+          {t.ctaPrimary}<span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn-ghost" href={localePath('/contact/', lang)}>{t.ctaGhost}</a>
+      </div>
+      <p class="hero-role">{t.role}</p>
+    </div>
+
+    <a class="scroll-hint" href="#featured" aria-label={t.scrollAria}>
+      <span class="scroll-hint-line" aria-hidden="true"></span>
+      <span class="scroll-hint-text">Scroll</span>
+    </a>
+  </section>
+
+  <section id="featured" class="section section-work">
+    <div class="wrap">
+      <p class="section-label">{w.label}</p>
+      <h2 class="section-title">{w.title}</h2>
+
+      <div class="teaser">
+        <TankVisual label={w.visualAlt} />
+
+        <div class="work-body">
+          <p class="work-catch">{w.catch}</p>
+          <p class="work-text">{w.teaserText}</p>
+          <ul class="tags" aria-label={w.tagsLabel}>
+            {TAGS.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <div class="work-actions">
+            <a class="btn btn-primary" href={localePath('/work/', lang)}>
+              {w.seeCta}<span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" href={KINGYO_URL} target="_blank" rel="noopener noreferrer">
+              {w.tryCta}<span class="btn-external" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <p class="section-label">{t.exploreLabel}</p>
+      <h2 class="section-title">{t.exploreTitle}</h2>
+
+      <ul class="nav-cards">
+        {t.cards.map((c) => (
+          <li class="nav-card">
+            <a href={localePath(c.path, lang)}>
+              <span class="nav-card-label">{c.label}</span>
+              <h3 class="nav-card-title">{c.title}</h3>
+              <p class="nav-card-text">{c.text}</p>
+              <span class="nav-card-more">{c.more}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</Base>

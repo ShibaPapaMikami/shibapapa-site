@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import { meta, about, SKILLS } from '../../data/content.js';
+import { localePath } from '../../data/nav.js';
+
+const { lang } = Astro.props;
+const m = meta.about[lang];
+const a = about[lang];
+---
+
+<Base
+  lang={lang}
+  path="/about/"
+  currentKey="about"
+  title={m.title}
+  description={m.description}
+  ogType="profile"
+  ogDescription={m.ogDescription}
+>
+
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <p class="eyebrow">{a.label}</p>
+      <h1 class="page-title">{a.title}</h1>
+      <p class="page-lead">{a.lead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-body">
+          {a.body.map((p) => <p>{p}</p>)}
+        </div>
+
+        <div class="skills">
+          <h2 class="skills-title">Skills</h2>
+          <ul class="skill-list">
+            {SKILLS.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <p class="section-label">{a.processLabel}</p>
+      <h2 class="section-title">{a.processTitle}</h2>
+      <p class="section-lead">{a.processLead}</p>
+
+      <ol class="process">
+        {a.steps.map((s, i) => (
+          <li class="step">
+            <span class="step-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="step-title">{s.title}</h3>
+            <p class="step-text">{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="wrap page-next-inner">
+      <p class="page-next-text">{a.nextText}</p>
+      <a class="btn btn-primary" href={localePath('/work/', lang)}>
+        {a.nextCta}<span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</Base>

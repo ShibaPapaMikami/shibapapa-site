@@ -1,0 +1,35 @@
+---
+import { notFound } from '../data/content.js';
+import '../styles/global.css';
+
+const ja = notFound.ja;
+const en = notFound.en;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ページが見つかりません / Page not found — SHIBAPAPA</title>
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+<main id="main" class="section">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">404</p>
+    <h1 class="hero-title">{ja.title}</h1>
+    <p class="hero-lead">{ja.lead}</p>
+    <p class="hero-lead" lang="en">{en.lead}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/">{ja.cta}</a>
+      <a class="btn btn-ghost" href="/en/" lang="en" hreflang="en">{en.cta}</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { meta, contact } from '../../data/content.js';
+import { localePath } from '../../data/nav.js';
+import { GUGENKA_CONTACT_URL, X_URL } from '../../data/site.js';
+
+const { lang } = Astro.props;
+const m = meta.contact[lang];
+const c = contact[lang];
+---
+
+<Base
+  lang={lang}
+  path="/contact/"
+  currentKey="contact"
+  title={m.title}
+  description={m.description}
+  ogDescription={m.ogDescription}
+>
+
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <p class="eyebrow">{c.label}</p>
+      <h1 class="page-title">{c.title}</h1>
+      <p class="page-lead">{c.lead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2 class="contact-card-title">{c.personTitle}</h2>
+          <p class="contact-card-text">{c.personText}</p>
+          <a class="btn btn-primary" href={X_URL} target="_blank" rel="noopener noreferrer">
+            {c.personCta}<span class="btn-external" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="contact-card" id="corporate-contact">
+          <h2 class="contact-card-title">{c.corpTitle}</h2>
+          <p class="contact-card-text">{c.corpText}</p>
+          <a class="btn btn-ghost" href={GUGENKA_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+            {c.corpCta}<span class="btn-external" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-next">
+    <div class="wrap page-next-inner">
+      <p class="page-next-text">{c.nextText}</p>
+      <a class="btn btn-ghost" href={localePath('/work/', lang)}>
+        {c.nextCta}<span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</Base>
