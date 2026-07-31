@@ -33,7 +33,7 @@ src/
   pages/           ルーティングのみ。中身は components/pages/ にある
     index.astro, work.astro, about.astro, lab.astro, contact.astro, 404.astro
     en/…           同じ構成の英語版
-  styles/global.css  見た目。色は先頭のCSS変数で一括変更できる
+  styles/global.css  見た目。色と書体は先頭のCSS変数で一括変更できる
 public/
   CNAME          独自ドメイン設定（消さないこと）
   .nojekyll / robots.txt / sitemap.xml / assets/favicon.svg
@@ -97,12 +97,31 @@ gh auth refresh -s workflow
 
 ## 画像・動画を差し替える場所
 
-### 1. 金魚水槽のメインビジュアル
+### 1. 金魚水槽のメインビジュアル（動画・静止画）
 
-**[src/components/TankVisual.astro](src/components/TankVisual.astro)**
+**[src/data/site.js](src/data/site.js) の `KINGYO_MEDIA`**
 
-現状はCSSのみの抽象表現です。中身を `<img src="/assets/works/kingyo.jpg" alt="...">`
-に置き換えれば、トップと作品ページの両方が同時に変わります。
+ファイルを `public/assets/works/` に置き、パスを書くだけで切り替わります。
+HTMLもCSSも触る必要はありません。
+
+```js
+export const KINGYO_MEDIA = {
+  poster: '/assets/works/kingyo-poster.jpg',
+  video:  '/assets/works/kingyo.mp4',
+  loop:   false,
+};
+```
+
+表示の優先順位は **動画 → 静止画 → CSSの抽象表現**（現状）です。
+
+- **トップは静止画まで**（`allowVideo` を渡していないため）。軽さを優先しています
+- **動画は作品ページのみ**。実際のMR映像は装飾ではなく実力の証明なので、
+  作品ページで大きく見せます
+- `loop: false`（既定）は再生ボタン付き・`preload="none"`。
+  `true` にすると音声なしの自動ループ再生になります（環境映像向け）
+
+**動画の目安**: MP4（H.264）、10〜20秒、5MB以内。長尺・高ビットレートは
+スマホの通信量とバッテリーを消費するので避けてください。
 
 ### 2. Lab のカード
 
@@ -117,6 +136,18 @@ gh auth refresh -s workflow
 `Base.astro` の `<head>` に `og:image` を追加してください。
 
 ---
+
+## デザインの方針
+
+エディトリアル寄りの静かなトーンです（展示会サイトの組版が下敷き）。
+
+- **和文は明朝、欧文はサンセリフ**（和欧混植）。`--font-serif` は欧文サンセリフを
+  先に並べ、和文グリフだけが明朝に落ちる指定です。順序を入れ替えないでください
+- **色は点で使う**。面はほぼ白と `--bg-alt` のみ。主ボタンは `--ink`（濃いチャコール）で、
+  青は「リンク」だけに使います
+- 角丸は 2〜6px に抑え、影は使いません。境界は 1px の罫線で表します
+- OS標準の明朝（ヒラギノ明朝・游明朝）を使うため **Webフォントの読み込みはゼロ**です。
+  Noto Serif JP を足すと表示が重くなるので、必要になるまで入れないでください
 
 ## 実装上の制約（変更時に守ること）
 

@@ -5,31 +5,36 @@
    ========================================================= */
 
 :root {
-  /* ベース（白基調） */
+  /* ベース（白基調・温かみのあるグレー） */
   --bg:          #ffffff;
-  --bg-alt:      #f4f8fb;
+  --bg-alt:      #f7f6f3;  /* 少し温かい淡グレー */
   --surface:     #ffffff;
-  --text:        #121820;
-  --text-muted:  #56626e;
-  --border:      #e2e9f0;
+  --ink:         #1b1a18;  /* 濃いチャコール。見出しと反転セクション */
+  --text:        #1b1a18;
+  --text-muted:  #5a5650;
+  --border:      #e3e0da;  /* 細い罫線 */
 
-  /* アクセント */
-  --water:       #0f6fd1;  /* 水面の青（UI・ボタン） */
+  /* アクセント（点で使う。面では使わない） */
+  --water:       #0f6fd1;  /* リンクと現在地の下線 */
   --water-dark:  #0b5299;
-  --water-soft:  #e8f2fd;
-  --cyan:        #0a9fb4;  /* 水中の光（図形用） */
-  --cyan-text:   #05707f;  /* 小さい文字用に暗くしたシアン（白地で4.5:1以上） */
-  --cyan-soft:   #e4f6f8;
+  --water-soft:  #eef4fa;
+  --cyan:        #0a9fb4;  /* 図形専用 */
+  --cyan-text:   #05707f;  /* 小さい文字用（白地で4.5:1以上） */
+  --cyan-soft:   #eef6f7;
   --fish:        #f2662a;  /* 金魚のオレンジ（図形専用） */
   --fish-deep:   #d94d14;
-  --fish-text:   #96330a;  /* バッジの文字用（淡いオレンジ地で4.5:1以上） */
+  --fish-text:   #96330a;  /* バッジの文字用 */
 
-  --radius:      16px;
-  --radius-lg:   24px;
+  --radius:      4px;      /* 角丸を抑えてエディトリアルに */
+  --radius-lg:   6px;
   --wrap:        1120px;
 
-  --font-sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP",
-               "Yu Gothic UI", "Meiryo", sans-serif;
+  /* 欧文はサンセリフ、和文は明朝。ブラウザが字種ごとに拾い分けます */
+  --font-sans: system-ui, -apple-system, "Helvetica Neue", Arial,
+               "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  --font-serif: system-ui, -apple-system, "Helvetica Neue", Arial,
+                "Hiragino Mincho ProN", "Yu Mincho", YuMincho,
+                "Noto Serif JP", serif;
 }
 
 /* ---------------- base ---------------- */
@@ -59,7 +64,14 @@ img, video { max-width: 100%; height: auto; display: block; }
 a { color: var(--water); text-underline-offset: 3px; }
 a:hover { color: var(--water-dark); }
 
-h1, h2, h3 { line-height: 1.4; letter-spacing: .01em; margin: 0; }
+/* 見出しは明朝（和文のみ。欧文はサンセリフのまま） */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: .02em;
+  margin: 0;
+}
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; }
 
@@ -120,10 +132,11 @@ ul, ol { margin: 0; padding: 0; }
   display: inline-flex;
   align-items: center;
   gap: .6rem;
-  font-weight: 800;
-  font-size: 1.02rem;
-  letter-spacing: .1em;
-  color: var(--text);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: .14em;
+  color: var(--ink);
   text-decoration: none;
 }
 
@@ -146,9 +159,11 @@ ul, ol { margin: 0; padding: 0; }
 
 .nav {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.8rem;
+  font-family: var(--font-serif);
   font-size: .92rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: .06em;
 }
 .nav a {
   color: var(--text-muted);
@@ -156,18 +171,17 @@ ul, ol { margin: 0; padding: 0; }
   padding-block: .35rem;
   white-space: nowrap;
 }
-.nav a:hover { color: var(--water); }
+.nav a:hover { color: var(--ink); }
 .nav a[aria-current="page"] {
-  color: var(--water-dark);
+  color: var(--ink);
   position: relative;
 }
 .nav a[aria-current="page"]::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -2px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--water);
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: var(--ink);
 }
 
 /* 言語切替（現在の言語ではなく「切り替え先」を表示する） */
@@ -175,21 +189,21 @@ ul, ol { margin: 0; padding: 0; }
   flex: none;
   display: inline-flex;
   align-items: center;
-  padding: .32rem .8rem;
-  border: 1.5px solid var(--border);
-  border-radius: 999px;
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  color: var(--text);
+  padding: .3rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--text-muted);
   text-decoration: none;
   white-space: nowrap;
-  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
 }
 .lang-toggle:hover {
-  border-color: var(--water);
-  color: var(--water);
-  background: var(--water-soft);
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
 }
 
 @media (max-width: 760px) {
@@ -218,30 +232,31 @@ ul, ol { margin: 0; padding: 0; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .45rem;
-  padding: .9rem 1.7rem;
-  border-radius: 999px;
-  font-size: .96rem;
-  font-weight: 700;
+  gap: .55rem;
+  padding: .95rem 1.9rem;
+  border-radius: 2px;
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .04em;
   text-decoration: none;
-  border: 1.5px solid transparent;
-  transition: background-color .18s ease, color .18s ease,
-              border-color .18s ease, transform .18s ease;
+  border: 1px solid transparent;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
-.btn:hover { transform: translateY(-2px); }
 
+/* 主ボタンは濃いチャコールの塗り。青の面積を減らして静けさを出す */
 .btn-primary {
-  background: var(--water);
+  background: var(--ink);
   color: #fff;
 }
-.btn-primary:hover { background: var(--water-dark); color: #fff; }
+.btn-primary:hover { background: #000; color: #fff; }
 
+/* 副ボタンは枠線のみ */
 .btn-ghost {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
 }
-.btn-ghost:hover { border-color: var(--water); color: var(--water); }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
 
 .btn-arrow, .btn-external { font-size: .9em; }
 
@@ -250,10 +265,9 @@ ul, ol { margin: 0; padding: 0; }
 .hero {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(4.5rem, 13vw, 9rem) clamp(5rem, 12vw, 8rem);
-  background:
-    radial-gradient(90% 70% at 12% -10%, var(--water-soft), transparent 68%),
-    radial-gradient(70% 60% at 92% 8%, var(--cyan-soft), transparent 70%);
+  padding-block: clamp(5rem, 13vw, 9.5rem) clamp(5rem, 12vw, 8rem);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 /* 水面の揺らぎ（transform/opacity のみでGPU負荷を抑える） */
@@ -265,8 +279,8 @@ ul, ol { margin: 0; padding: 0; }
 .ripple {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(15, 111, 209, .16);
-  animation: ripple 9s ease-out infinite;
+  border: 1px solid rgba(10, 159, 180, .10);
+  animation: ripple 14s ease-out infinite;
 }
 .ripple-1 { width: 260px; height: 260px; left: -60px;  top: 18%; }
 .ripple-2 { width: 400px; height: 400px; right: -110px; top: 4%;  animation-delay: 3s; }
@@ -281,18 +295,20 @@ ul, ol { margin: 0; padding: 0; }
 .hero-inner { position: relative; max-width: 46rem; }
 
 .eyebrow {
-  margin-bottom: 1.1rem;
-  font-size: .8rem;
-  font-weight: 700;
-  letter-spacing: .16em;
-  color: var(--water-dark);
+  margin-bottom: 1.2rem;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .hero-title {
-  font-size: clamp(2.1rem, 6.2vw, 3.9rem);
-  font-weight: 800;
-  letter-spacing: -.015em;
-  margin-bottom: 1.6rem;
+  font-size: clamp(2rem, 5.6vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1.42;
+  margin-bottom: 1.8rem;
 }
 
 .hero-lead {
@@ -345,19 +361,17 @@ ul, ol { margin: 0; padding: 0; }
 .page-hero {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(3.2rem, 8vw, 5.5rem) clamp(2.2rem, 5vw, 3.4rem);
-  background:
-    radial-gradient(80% 80% at 10% -20%, var(--water-soft), transparent 70%),
-    radial-gradient(60% 70% at 95% 0%, var(--cyan-soft), transparent 72%);
+  padding-block: clamp(3.4rem, 8vw, 5.5rem) clamp(2.4rem, 5vw, 3.6rem);
+  background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
 }
 .page-hero-inner { position: relative; max-width: 44rem; }
 
 .page-title {
-  font-size: clamp(1.9rem, 5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -.015em;
-  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 4.6vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin-bottom: 1.1rem;
 }
 .page-lead {
   color: var(--text-muted);
@@ -399,9 +413,7 @@ ul, ol { margin: 0; padding: 0; }
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 .nav-card a:hover {
-  transform: translateY(-4px);
-  border-color: rgba(15, 111, 209, .45);
-  box-shadow: 0 18px 40px -26px rgba(11, 82, 153, .4);
+    border-color: var(--ink);
 }
 .nav-card-label {
   display: block;
@@ -451,19 +463,19 @@ ul, ol { margin: 0; padding: 0; }
 .section-alt { background: var(--bg-alt); }
 
 .section-label {
-  margin-bottom: .6rem;
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .18em;
+  margin-bottom: .7rem;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--cyan-text);
+  color: var(--text-muted);
 }
 
 .section-title {
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -.01em;
-  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin-bottom: 1.1rem;
 }
 
 .section-lead {
@@ -493,9 +505,18 @@ ul, ol { margin: 0; padding: 0; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
-  background: linear-gradient(170deg, #f7fbff, #e9f4fd 55%, #dcecf9);
+  background: linear-gradient(170deg, #f9fbfc, #eef4f7 55%, #e6eef3);
   aspect-ratio: 4 / 3;
-  box-shadow: 0 20px 50px -28px rgba(11, 82, 153, .35);
+}
+
+/* 画像・動画を入れたとき */
+.work-visual-media { background: var(--bg-alt); }
+.work-visual-media img,
+.work-visual-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .tank { position: absolute; inset: 0; }
@@ -575,10 +596,12 @@ ul, ol { margin: 0; padding: 0; }
 
 /* --- 本文 --- */
 .work-catch {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: 800;
-  color: var(--water-dark);
-  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
 }
 .work-text {
   color: var(--text-muted);
@@ -593,13 +616,14 @@ ul, ol { margin: 0; padding: 0; }
   margin-bottom: 2rem;
 }
 .tags li {
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: .03em;
-  padding: .35rem .85rem;
-  border-radius: 999px;
-  background: var(--cyan-soft);
-  color: var(--cyan-text);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  padding: .32rem .8rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
 }
 .tags-sm { margin-bottom: 0; }
 .tags-sm li { font-size: .72rem; padding: .25rem .65rem; }
@@ -697,12 +721,13 @@ ul, ol { margin: 0; padding: 0; }
   gap: .5rem;
 }
 .skill-list li {
-  font-size: .85rem;
-  font-weight: 600;
-  padding: .4rem .9rem;
-  border-radius: 999px;
-  background: var(--water-soft);
-  color: var(--water-dark);
+  font-size: .84rem;
+  font-weight: 500;
+  padding: .38rem .85rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
 }
 
 /* ---------------- Lab cards ---------------- */
@@ -722,9 +747,7 @@ ul, ol { margin: 0; padding: 0; }
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(15, 111, 209, .45);
-  box-shadow: 0 18px 40px -26px rgba(11, 82, 153, .4);
+    border-color: var(--ink);
 }
 .card-link {
   display: block;
@@ -761,9 +784,10 @@ ul, ol { margin: 0; padding: 0; }
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  padding: .25rem .7rem;
-  border-radius: 999px;
-  background: #fdeee6;
+  padding: .22rem .65rem;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--fish);
   color: var(--fish-text);
   margin-bottom: .8rem;
 }

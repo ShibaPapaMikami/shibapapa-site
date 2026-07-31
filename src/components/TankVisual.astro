@@ -1,25 +1,67 @@
 ---
 /*
-  抽象的な水槽ビジュアル（CSSのみ・画像ファイル不要）
+  金魚水槽 MRアートのメインビジュアル
 
-  ▼ 差し替え方
-  実際の画像や動画が用意できたら、このコンポーネントの中身を
-  <img src="/assets/works/kingyo.jpg" alt="..." /> に置き換えてください。
-  アスペクト比・角丸・枠線は .work-visual 側で効くのでそのまま収まります。
+  素材の有無で自動的に切り替わります（src/data/site.js の KINGYO_MEDIA）:
 
-  ※ Stage B ではここが「生きた水槽」（WebGPU/WebGL2 canvas）に置き換わります。
+    1. video あり かつ allowVideo … 動画
+    2. poster あり               … 静止画
+    3. どちらも無し              … CSSの抽象表現（現状のプレースホルダ）
+
+  トップでは allowVideo={false} を渡し、静止画までに留めています。
+  実際の作品映像は「装飾」ではなく「証拠」なので、作品ページで見せます。
 */
-const { label } = Astro.props;
+import { KINGYO_MEDIA } from '../data/site.js';
+
+const { label, allowVideo = false } = Astro.props;
+
+const useVideo = allowVideo && Boolean(KINGYO_MEDIA.video);
+const usePoster = !useVideo && Boolean(KINGYO_MEDIA.poster);
+const loop = KINGYO_MEDIA.loop;
 ---
 
-<div class="work-visual" role="img" aria-label={label}>
-  <div class="tank" aria-hidden="true">
-    <span class="tank-surface"></span>
-    <span class="tank-glow"></span>
-    <span class="fish fish-1"></span>
-    <span class="fish fish-2"></span>
-    <span class="fish fish-3"></span>
-    <span class="trail trail-1"></span>
-    <span class="trail trail-2"></span>
+{useVideo && (
+  <div class="work-visual work-visual-media">
+    {loop ? (
+      <video
+        src={KINGYO_MEDIA.video}
+        poster={KINGYO_MEDIA.poster ?? undefined}
+        muted
+        loop
+        autoplay
+        playsinline
+        preload="metadata"
+        aria-label={label}
+      ></video>
+    ) : (
+      <video
+        src={KINGYO_MEDIA.video}
+        poster={KINGYO_MEDIA.poster ?? undefined}
+        controls
+        playsinline
+        preload="none"
+        aria-label={label}
+      ></video>
+    )}
   </div>
-</div>
+)}
+
+{usePoster && (
+  <div class="work-visual work-visual-media">
+    <img src={KINGYO_MEDIA.poster} alt={label} loading="lazy" decoding="async" />
+  </div>
+)}
+
+{!useVideo && !usePoster && (
+  <div class="work-visual" role="img" aria-label={label}>
+    <div class="tank" aria-hidden="true">
+      <span class="tank-surface"></span>
+      <span class="tank-glow"></span>
+      <span class="fish fish-1"></span>
+      <span class="fish fish-2"></span>
+      <span class="fish fish-3"></span>
+      <span class="trail trail-1"></span>
+      <span class="trail trail-2"></span>
+    </div>
+  </div>
+)}

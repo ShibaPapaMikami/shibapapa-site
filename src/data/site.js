@@ -16,6 +16,26 @@ export const X_URL = 'https://x.com/Mikami_Gugenka';
 /** 金魚水槽MRアートの公開URL */
 export const KINGYO_URL = 'https://kingyo-kappa.vercel.app/tank-pc.html';
 
+/**
+ * 金魚水槽MRアートのメインビジュアル
+ *
+ * ★ 素材が用意できたら、ここにパスを入れるだけで
+ *   トップと作品ページの両方が自動で切り替わります。
+ *   ファイルは public/assets/works/ に置いてください。
+ *
+ * 優先順位: video → poster（画像のみ）→ CSSの抽象表現（現状）
+ *
+ *   poster … 静止画。トップではこれだけを使います（軽さのため）
+ *   video  … 作品ページで使う動画。MP4（H.264）推奨、10〜20秒、5MB以内が目安
+ *   loop   … true にすると音声なしで自動ループ再生（環境映像向け）
+ *            false（既定）は再生ボタン付き。まずは false を推奨
+ */
+export const KINGYO_MEDIA = {
+  poster: null, // 例: '/assets/works/kingyo-poster.jpg'
+  video: null,  // 例: '/assets/works/kingyo.mp4'
+  loop: false,
+};
+
 /** サイトの正規URL */
 export const SITE_URL = 'https://shibapapa.com';
 
